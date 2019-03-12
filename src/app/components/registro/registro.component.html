@@ -1,0 +1,23 @@
+<div class="col-12">
+  <!-- formGroup ACTIVA LA CAPTURA DE EVENTOS DE UN FORMULARIO HTML -->
+  <!-- []Recibe, ()Envia, [()]Bidireccional -->
+  <!-- valor VA A SER UN OBJETO DE LA CLASE formGroup QUE CONTENDRÁ TODA LA INFORMACION DEL FORMULARIO ENVIADO -->
+  <form [formGroup]="valor" (ngSubmit)="guardar()">
+    <div class="form-group">
+      Nombre
+      <!-- formControlName ES UNA PROPIEDAD QUE VINCULA AL OBJETO valor DE LA CLASE formGroup CON TODO EL CONTENIDO DEL FORMULARIO -->
+      <input class="form-control"  type="text" placeholder="Nombre" formControlName="nombre"> <!--name="nombre" [(ngModel)]="nombre" ESTE nombre ESTÁ VINCULADO A LA VARIABLE LLAMADA nombre. ENTRE CORCHETES LO QUE HACE ES TOMAR EL VALOR, SUMANDOLE LOS PARENTESIS TAMBIEN LOS ENVIA -->
+    </div>
+    <div class="form-group">
+      Apellido
+      <input class="form-control"  type="text" placeholder="Apellido" formControlName="apellido"> <!-- name="apellido"[(ngModel)]="apellido">  -->
+    </div>
+    <div class="form-group">
+      Mail
+      <input class="form-control"  type="text" placeholder="Mail" formControlName="correo"> <!-- name="mail" [(ngModel)]="correo" -->
+    </div>
+    <!-- SI SE CUMPLEN TODOS LOS REQUISITOS, EL valor.valid TIRA TRUE, SINO TIRA FALSE. ACA LO NEGAMOS POR QUE SI ES INVALIDO(QUE TIRA FALSE), QUE SEA TRUE EL DISABLED PARA QUE NO SE HABILITE -->
+    <button [disabled]="!valor.valid" class="btn btn-primary">Registrarte</button>
+  </form>
+  {{nombre}} , {{apellido}} , {{correo}}
+</div>
